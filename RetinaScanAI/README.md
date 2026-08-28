@@ -1,3 +1,14 @@
+---
+title: RetinaScan AI
+emoji: 👁️
+colorFrom: blue
+colorTo: green
+sdk: docker
+app_port: 7860
+pinned: false
+license: mit
+---
+
 # RetinaScan AI
 
 **Explainable AI for Diabetic Retinopathy Screening in Rural India**
@@ -17,6 +28,7 @@ Smart India Hackathon 2026 &middot; Problem Statement **SIH26038** &middot; Orga
 - [Architecture](#architecture)
 - [Repository layout](#repository-layout)
 - [Quickstart](#quickstart)
+- [Deployment](#deployment)
 - [How it works, stage by stage](#how-it-works-stage-by-stage)
 - [The model — honest status](#the-model--honest-status)
 - [District-scale throughput simulation](#district-scale-throughput-simulation)
@@ -230,6 +242,39 @@ uvicorn app.main:app --reload --port 8000
 `backend/data/raw/` (the real, full-resolution Kaggle images) is
 git-ignored — it's ~8GB and Kaggle's competition rules don't permit
 redistributing it, so it never leaves your machine.
+
+## Deployment
+
+Deployed as a **single Docker container** on Hugging Face Spaces (free CPU
+tier) — the `Dockerfile` at the repo root builds one image where FastAPI
+serves both the API *and* the frontend (`app/main.py` mounts the static
+frontend files directly), so there's one container, one URL, no separate
+frontend host and no CORS configuration to get right.
+
+```bash
+# Build and run it exactly as the Space does, locally:
+docker build -t retinascan-ai .
+docker run -p 7860:7860 retinascan-ai
+# -> http://localhost:7860
+```
+
+A few deployment-specific choices worth knowing about:
+- **`requirements-deploy.txt`**, not `requirements.txt`, is what the
+  Dockerfile installs — a trimmed runtime-only set (no `kaggle`, `pytest`,
+  training-only libs) using `opencv-python-headless` instead of the full
+  GUI-enabled build, so the image doesn't need X11/GL system libraries.
+- **The real APTOS checkpoint is the deployed default**
+  (`RETINASCAN_MODEL_PATH=/app/backend/models/retina_cnn_aptos.pt` in the
+  Dockerfile), not the synthetic one — the public demo should show the
+  real-data model. Override that env var in the Space's settings to serve
+  the synthetic checkpoint instead.
+- **Free-tier cold starts**: after inactivity, the Space sleeps and the
+  first request after that takes ~30-60s while it wakes up and loads the
+  model. The frontend's status indicator reflects this (shows "backend
+  unreachable" until the health check succeeds) rather than looking broken.
+- The `frontend/app.js` `API_BASE` auto-detects dev (`localhost:5500` →
+  points at a separate `localhost:8000` backend) vs. deployed (same-origin,
+  relative paths) — no manual configuration needed either way.
 
 ## How it works, stage by stage
 

@@ -1,4 +1,12 @@
-const API_BASE = window.RETINASCAN_API_BASE || "http://localhost:8000";
+// Deployed (Hugging Face Spaces / any single-container setup): the API is
+// same-origin (FastAPI serves this frontend too, see backend/app/main.py),
+// so an empty base means "relative to this page" and just works.
+// Local two-server dev (this file served by `python -m http.server 5500`
+// while the API runs separately via uvicorn on :8000): auto-detected below
+// and pointed at localhost:8000, no manual config needed either way.
+const API_BASE =
+  window.RETINASCAN_API_BASE ||
+  (location.port === "5500" ? "http://localhost:8000" : "");
 
 const els = {
   dropzone: document.getElementById("dropzone"),

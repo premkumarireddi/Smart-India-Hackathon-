@@ -1,0 +1,15 @@
+# Lean runtime-only dependency set for the deployed container (Dockerfile).
+# backend/requirements.txt (full: +kaggle, +pytest, +scikit-learn/pandas,
+# GUI-enabled opencv) stays the one used for local dev/training — this file
+# exists only to keep the deployed image smaller and avoid needing system
+# GUI libraries (libGL etc.) that opencv-python's non-headless build wants.
+fastapi==0.129.0
+uvicorn[standard]==0.24.0
+python-multipart==0.0.22
+pydantic==2.12.5
+
+torch==2.10.0
+torchvision==0.25.0
+numpy==2.2.6
+opencv-python-headless==4.12.0.88
+Pillow==12.0.0

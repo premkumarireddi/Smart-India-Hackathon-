@@ -20,10 +20,19 @@ def _png_bytes(img_bgr: np.ndarray) -> bytes:
     return buf.tobytes()
 
 
-def test_root_endpoint():
-    r = client.get("/")
+def test_api_info_endpoint():
+    r = client.get("/api")
     assert r.status_code == 200
     assert "RetinaScan" in r.json()["service"]
+
+
+def test_root_serves_frontend_html():
+    # "/" is mounted to the static frontend (see app/main.py) so a single
+    # deployed container serves both the UI and the API.
+    r = client.get("/")
+    assert r.status_code == 200
+    assert "text/html" in r.headers["content-type"]
+    assert "RetinaScan AI" in r.text
 
 
 def test_health_endpoint_reachable():

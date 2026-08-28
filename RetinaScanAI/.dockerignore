@@ -1,0 +1,17 @@
+.git
+.gitignore
+.dockerignore
+README.md
+LICENSE
+docs/
+scripts/
+simulation/
+backend/data/
+backend/ml/
+backend/tests/
+backend/requirements.txt
+backend/pytest.ini
+backend/.pytest_cache/
+**/__pycache__/
+**/*.pyc
+**/.cache128/
