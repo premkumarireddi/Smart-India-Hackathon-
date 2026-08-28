@@ -1,0 +1,147 @@
+:root {
+  --blue: #0070c0;
+  --dark-blue: #1f3864;
+  --green: #1e7b34;
+  --red: #c0392b;
+  --grey-bg: #f4f7fb;
+  --border: #dbe3ef;
+  --text: #1c2430;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--grey-bg);
+  color: var(--text);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--dark-blue);
+  color: white;
+  padding: 16px 28px;
+}
+
+.brand { display: flex; align-items: center; gap: 14px; }
+
+.brand-mark {
+  width: 42px; height: 42px;
+  background: var(--blue);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 20px;
+}
+
+.brand h1 { margin: 0; font-size: 20px; }
+.brand p { margin: 2px 0 0; font-size: 12.5px; opacity: 0.8; }
+
+.api-status { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: #999; }
+.dot.online { background: #2ecc71; }
+.dot.offline { background: #e74c3c; }
+
+main {
+  max-width: 980px;
+  margin: 28px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.panel {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 26px;
+}
+
+.panel h2 { margin-top: 0; font-size: 17px; color: var(--dark-blue); }
+.hint { font-size: 13px; color: #667; }
+
+.dropzone {
+  border: 2px dashed var(--border);
+  border-radius: 10px;
+  min-height: 160px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  margin: 14px 0;
+  overflow: hidden;
+}
+.dropzone.drag-over { border-color: var(--blue); background: #eaf3fc; }
+.dropzone img { max-width: 100%; max-height: 320px; display: block; }
+
+button#screenBtn {
+  background: var(--blue);
+  color: white;
+  border: none;
+  padding: 11px 22px;
+  border-radius: 8px;
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+button#screenBtn:disabled { background: #b7cfe6; cursor: not-allowed; }
+
+.error { color: var(--red); font-size: 13px; }
+
+.rejected-block {
+  background: #fdecea;
+  border: 1px solid #f2c2bb;
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+.rejected-block h3 { margin-top: 0; color: var(--red); }
+
+.images-row { display: flex; gap: 20px; flex-wrap: wrap; }
+.images-row figure { margin: 0; flex: 1 1 260px; }
+.images-row img { width: 100%; border-radius: 8px; border: 1px solid var(--border); }
+.images-row figcaption { font-size: 12.5px; text-align: center; color: #667; margin-top: 6px; }
+
+.verdict {
+  display: flex; align-items: center; gap: 16px;
+  margin-top: 22px;
+  padding: 16px;
+  border-radius: 10px;
+  background: #f4f7fb;
+}
+.severity-badge {
+  min-width: 90px;
+  text-align: center;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  color: white;
+  background: var(--dark-blue);
+}
+.severity-badge.level-0 { background: var(--green); }
+.severity-badge.level-1 { background: #6b8f2c; }
+.severity-badge.level-2 { background: #d68910; }
+.severity-badge.level-3 { background: #d35400; }
+.severity-badge.level-4 { background: var(--red); }
+
+.severity-desc { margin: 0 0 4px; font-weight: 600; }
+.confidence { margin: 0; font-size: 13px; color: #556; }
+
+.recommendation {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  border-left: 4px solid var(--blue);
+  background: #eaf3fc;
+}
+
+.probs { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+.prob-row { display: grid; grid-template-columns: 120px 1fr 48px; align-items: center; gap: 10px; font-size: 13px; }
+.prob-bar-bg { background: #e5ebf3; border-radius: 6px; overflow: hidden; height: 12px; }
+.prob-bar-fill { background: var(--blue); height: 100%; }
+
+.quality-details { margin-top: 18px; font-size: 13px; }
+.quality-details pre { background: #f4f7fb; padding: 10px; border-radius: 8px; overflow-x: auto; }
+
+footer { text-align: center; font-size: 12px; color: #889; padding: 24px; }

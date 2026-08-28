@@ -1,0 +1,252 @@
+{
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.1881,
+      "is_best": true,
+      "accuracy": 0.711,
+      "per_class": {
+        "No_DR": {
+          "precision": 0.948,
+          "recall_sensitivity": 0.917,
+          "specificity": 0.951,
+          "support": 361
+        },
+        "Mild": {
+          "precision": 0.449,
+          "recall_sensitivity": 0.824,
+          "specificity": 0.886,
+          "support": 74
+        },
+        "Moderate": {
+          "precision": 0.727,
+          "recall_sensitivity": 0.467,
+          "specificity": 0.934,
+          "support": 199
+        },
+        "Severe": {
+          "precision": 0.294,
+          "recall_sensitivity": 0.395,
+          "specificity": 0.948,
+          "support": 38
+        },
+        "Proliferative_DR": {
+          "precision": 0.299,
+          "recall_sensitivity": 0.339,
+          "specificity": 0.93,
+          "support": 59
+        }
+      },
+      "referable_dr_sensitivity": 0.753,
+      "referable_dr_specificity": 0.947,
+      "n_val_samples": 731
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.8513,
+      "is_best": true,
+      "accuracy": 0.736,
+      "per_class": {
+        "No_DR": {
+          "precision": 0.964,
+          "recall_sensitivity": 0.978,
+          "specificity": 0.965,
+          "support": 361
+        },
+        "Mild": {
+          "precision": 0.56,
+          "recall_sensitivity": 0.689,
+          "specificity": 0.939,
+          "support": 74
+        },
+        "Moderate": {
+          "precision": 0.72,
+          "recall_sensitivity": 0.387,
+          "specificity": 0.944,
+          "support": 199
+        },
+        "Severe": {
+          "precision": 0.304,
+          "recall_sensitivity": 0.737,
+          "specificity": 0.908,
+          "support": 38
+        },
+        "Proliferative_DR": {
+          "precision": 0.387,
+          "recall_sensitivity": 0.492,
+          "specificity": 0.932,
+          "support": 59
+        }
+      },
+      "referable_dr_sensitivity": 0.845,
+      "referable_dr_specificity": 0.945,
+      "n_val_samples": 731
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.7277,
+      "is_best": true,
+      "accuracy": 0.722,
+      "per_class": {
+        "No_DR": {
+          "precision": 0.967,
+          "recall_sensitivity": 0.961,
+          "specificity": 0.968,
+          "support": 361
+        },
+        "Mild": {
+          "precision": 0.524,
+          "recall_sensitivity": 0.743,
+          "specificity": 0.924,
+          "support": 74
+        },
+        "Moderate": {
+          "precision": 0.731,
+          "recall_sensitivity": 0.382,
+          "specificity": 0.947,
+          "support": 199
+        },
+        "Severe": {
+          "precision": 0.34,
+          "recall_sensitivity": 0.421,
+          "specificity": 0.955,
+          "support": 38
+        },
+        "Proliferative_DR": {
+          "precision": 0.293,
+          "recall_sensitivity": 0.576,
+          "specificity": 0.878,
+          "support": 59
+        }
+      },
+      "referable_dr_sensitivity": 0.838,
+      "referable_dr_specificity": 0.956,
+      "n_val_samples": 731
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.6323,
+      "is_best": false,
+      "accuracy": 0.763,
+      "per_class": {
+        "No_DR": {
+          "precision": 0.954,
+          "recall_sensitivity": 0.986,
+          "specificity": 0.954,
+          "support": 361
+        },
+        "Mild": {
+          "precision": 0.462,
+          "recall_sensitivity": 0.811,
+          "specificity": 0.893,
+          "support": 74
+        },
+        "Moderate": {
+          "precision": 0.754,
+          "recall_sensitivity": 0.447,
+          "specificity": 0.945,
+          "support": 199
+        },
+        "Severe": {
+          "precision": 0.458,
+          "recall_sensitivity": 0.579,
+          "specificity": 0.962,
+          "support": 38
+        },
+        "Proliferative_DR": {
+          "precision": 0.5,
+          "recall_sensitivity": 0.525,
+          "specificity": 0.954,
+          "support": 59
+        }
+      },
+      "referable_dr_sensitivity": 0.74,
+      "referable_dr_specificity": 0.979,
+      "n_val_samples": 731
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.5331,
+      "is_best": false,
+      "accuracy": 0.772,
+      "per_class": {
+        "No_DR": {
+          "precision": 0.972,
+          "recall_sensitivity": 0.956,
+          "specificity": 0.973,
+          "support": 361
+        },
+        "Mild": {
+          "precision": 0.474,
+          "recall_sensitivity": 0.851,
+          "specificity": 0.893,
+          "support": 74
+        },
+        "Moderate": {
+          "precision": 0.788,
+          "recall_sensitivity": 0.543,
+          "specificity": 0.945,
+          "support": 199
+        },
+        "Severe": {
+          "precision": 0.396,
+          "recall_sensitivity": 0.553,
+          "specificity": 0.954,
+          "support": 38
+        },
+        "Proliferative_DR": {
+          "precision": 0.509,
+          "recall_sensitivity": 0.458,
+          "specificity": 0.961,
+          "support": 59
+        }
+      },
+      "referable_dr_sensitivity": 0.78,
+      "referable_dr_specificity": 0.972,
+      "n_val_samples": 731
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.4055,
+      "is_best": true,
+      "accuracy": 0.747,
+      "per_class": {
+        "No_DR": {
+          "precision": 0.975,
+          "recall_sensitivity": 0.956,
+          "specificity": 0.976,
+          "support": 361
+        },
+        "Mild": {
+          "precision": 0.53,
+          "recall_sensitivity": 0.716,
+          "specificity": 0.928,
+          "support": 74
+        },
+        "Moderate": {
+          "precision": 0.746,
+          "recall_sensitivity": 0.503,
+          "specificity": 0.936,
+          "support": 199
+        },
+        "Severe": {
+          "precision": 0.265,
+          "recall_sensitivity": 0.579,
+          "specificity": 0.912,
+          "support": 38
+        },
+        "Proliferative_DR": {
+          "precision": 0.433,
+          "recall_sensitivity": 0.441,
+          "specificity": 0.949,
+          "support": 59
+        }
+      },
+      "referable_dr_sensitivity": 0.865,
+      "referable_dr_specificity": 0.952,
+      "n_val_samples": 731
+    }
+  ],
+  "training_seconds": 1649.7,
+  "device": "cpu"
+}

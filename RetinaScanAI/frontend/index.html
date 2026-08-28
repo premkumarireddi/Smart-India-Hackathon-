@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>RetinaScan AI — DR Screening</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">R</span>
+      <div>
+        <h1>RetinaScan AI</h1>
+        <p>Explainable Diabetic Retinopathy Screening &middot; SIH26038</p>
+      </div>
+    </div>
+    <div class="api-status" id="apiStatus">
+      <span class="dot" id="apiDot"></span>
+      <span id="apiStatusText">checking backend…</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel upload-panel">
+      <h2>1. Upload a fundus photo</h2>
+      <p class="hint">JPEG or PNG. Try one of the synthetic sample images from
+        <code>backend/data/synthetic/</code> if you don't have a real fundus photo handy.</p>
+
+      <div class="dropzone" id="dropzone">
+        <input type="file" id="fileInput" accept="image/png,image/jpeg" hidden />
+        <div id="dropzoneEmpty">
+          <p><strong>Click to choose</strong> or drag &amp; drop an image</p>
+        </div>
+        <img id="previewImg" alt="preview" hidden />
+      </div>
+
+      <button id="screenBtn" disabled>Run Screening</button>
+      <p class="error" id="errorMsg" hidden></p>
+    </section>
+
+    <section class="panel results-panel" id="resultsPanel" hidden>
+      <h2>2. Result</h2>
+
+      <div id="rejectedBlock" class="rejected-block" hidden>
+        <h3>⚠️ Image rejected at quality gate</h3>
+        <ul id="rejectReasons"></ul>
+        <p>Please recapture with better focus / lighting / framing and try again.</p>
+      </div>
+
+      <div id="acceptedBlock" hidden>
+        <div class="images-row">
+          <figure>
+            <img id="enhancedImg" alt="Enhanced fundus image" />
+            <figcaption>Enhanced image (after CLAHE)</figcaption>
+          </figure>
+          <figure>
+            <img id="gradcamImg" alt="Grad-CAM heatmap overlay" />
+            <figcaption>Grad-CAM evidence map</figcaption>
+          </figure>
+        </div>
+
+        <div class="verdict" id="verdict">
+          <div class="severity-badge" id="severityBadge">—</div>
+          <div>
+            <p class="severity-desc" id="severityDesc"></p>
+            <p class="confidence" id="confidenceText"></p>
+          </div>
+        </div>
+
+        <div class="recommendation" id="recommendationBox"></div>
+
+        <h3>Class probabilities</h3>
+        <div class="probs" id="probsBars"></div>
+
+        <details class="quality-details">
+          <summary>Image quality metrics</summary>
+          <pre id="qualityJson"></pre>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Prototype built for Smart India Hackathon &middot; Team Pheonix &middot;
+      Check the status bar above for which data this model was trained on — see README for details.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
